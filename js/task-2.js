@@ -1,11 +1,15 @@
-function formatMessage(message, maxLength) {
-  return message.length <= maxLength ? message : message.slice(0, maxLength) + "...";
-}
+const sortByDescendingFriendCount = (users) => 
+  [...users].sort((a, b) => b.friends.length - a.friends.length);
 
 
-console.log(formatMessage("Curabitur ligula sapien", 16)); // "Curabitur ligula..."
-console.log(formatMessage("Curabitur ligula sapien", 23)); // "Curabitur ligula sapien"
-console.log(formatMessage("Vestibulum facilisis purus nec", 20)); // "Vestibulum facilisis..."
-console.log(formatMessage("Vestibulum facilisis purus nec", 30)); // "Vestibulum facilisis purus nec"
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15)); // "Nunc sed turpis..."
-console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 41)); // "Nunc sed turpis a felis in nunc fringilla"
+console.log(
+  sortByDescendingFriendCount([
+    { name: "Moore Hensley", friends: ["Sharron Pace"], gender: "male" },
+    { name: "Sharlene Bush", friends: ["Briana Decker", "Sharron Pace"], gender: "female" },
+    { name: "Ross Vazquez", friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"], gender: "male" },
+    { name: "Elma Head", friends: ["Goldie Gentry", "Aisha Tran"], gender: "female" },
+    { name: "Carey Barr", friends: ["Jordan Sampson", "Eddie Strong"], gender: "male" },
+    { name: "Blackburn Dotson", friends: ["Jacklyn Lucas", "Linda Chapman"], gender: "male" },
+    { name: "Sheree Anthony", friends: ["Goldie Gentry", "Briana Decker"], gender: "female" }
+  ])
+);

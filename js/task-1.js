@@ -1,13 +1,16 @@
-function makeTransaction(quantity, pricePerDroid, customerCredits) {
-  const totalPrice = quantity * pricePerDroid;
-  if (totalPrice > customerCredits) {
-    return "Insufficient funds!";
-  }
-  return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
-}
+const getUsersWithFriend = (users, friendName) => 
+  users.filter(user => user.friends.includes(friendName));
 
-console.log(makeTransaction(5, 3000, 23000)); // "You ordered 5 droids worth 15000 credits!"
-console.log(makeTransaction(3, 1000, 15000)); // "You ordered 3 droids worth 3000 credits!"
-console.log(makeTransaction(10, 5000, 8000)); // "Insufficient funds!"
-console.log(makeTransaction(8, 2000, 10000)); // "Insufficient funds!"
-console.log(makeTransaction(10, 500, 5000)); // "You ordered 10 droids worth 5000 credits!"
+const allUsers = [
+  { name: "Moore Hensley", friends: ["Sharron Pace"] },
+  { name: "Sharlene Bush", friends: ["Briana Decker", "Sharron Pace"] },
+  { name: "Ross Vazquez", friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"] },
+  { name: "Elma Head", friends: ["Goldie Gentry", "Aisha Tran"] },
+  { name: "Carey Barr", friends: ["Jordan Sampson", "Eddie Strong"] },
+  { name: "Blackburn Dotson", friends: ["Jacklyn Lucas", "Linda Chapman"] },
+  { name: "Sheree Anthony", friends: ["Goldie Gentry", "Briana Decker"] }
+];
+
+console.log(getUsersWithFriend(allUsers, "Briana Decker"));
+console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
+console.log(getUsersWithFriend(allUsers, "Adrian Cross"));
